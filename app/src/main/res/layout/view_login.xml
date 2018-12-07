@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@color/white">
 
-    <!-- Login progress -->
+    <!-- ControllerLogin progress -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -85,7 +85,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15sp"
-                            android:textColorHint="@color/white">
+                            android:textColorHint="@color/pink">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txt_email"
@@ -93,7 +93,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/prompt_email"
                                 android:inputType="textEmailAddress"
-                                android:textColor="@color/white"
+                                android:textColor="@color/colorSecondaryText"
                                 android:maxLines="1"
                                 android:singleLine="true" />
 
@@ -119,9 +119,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15sp"
-                            android:textColorHint="@color/white"
-                            app:passwordToggleEnabled="true"
-                            app:passwordToggleTint="@color/white">
+                            android:textColorHint="@color/pink">
 
                             <EditText
                                 android:id="@+id/txt_password"
@@ -129,7 +127,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/prompt_password"
                                 android:imeActionId="6"
-                                android:textColor="@color/white"
+                                android:textColor="@color/colorSecondaryText"
 
                                 android:imeActionLabel="@string/action_sign_in_short"
                                 android:imeOptions="actionUnspecified"

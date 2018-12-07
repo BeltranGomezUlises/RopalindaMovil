@@ -10,7 +10,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.ropalinda.ropalindamovil.Controllers.Main;
+import com.ropalinda.ropalindamovil.Controllers.ControllerInicio;
+import com.ropalinda.ropalindamovil.R;
 
 public class Splash extends AppCompatActivity {
 
@@ -50,7 +51,7 @@ public class Splash extends AppCompatActivity {
                     e.printStackTrace();
                 }finally{
 
-                    Intent intent = new Intent(Splash.this, Main.class);
+                    Intent intent = new Intent(Splash.this, ControllerInicio.class);
                     startActivity(intent);
 
                 }

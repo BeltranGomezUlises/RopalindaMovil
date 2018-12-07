@@ -1,6 +1,6 @@
 package com.ropalinda.ropalindamovil.Entities;
 
-public class ModeloProductos {
+public class Productos {
 
     private int id;
     private int idProduto;
@@ -9,7 +9,7 @@ public class ModeloProductos {
     private int precioProcto;
     private String imagenProducto;
 
-    public ModeloProductos(int id, int idProduto, String categoriaProducto, String nombreProducto, int precioProcto, String imagenProducto) {
+    public Productos(int id, int idProduto, String categoriaProducto, String nombreProducto, int precioProcto, String imagenProducto) {
         this.id = id;
         this.idProduto = idProduto;
         this.categoriaProducto = categoriaProducto;

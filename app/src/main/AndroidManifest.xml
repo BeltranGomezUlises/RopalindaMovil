@@ -4,9 +4,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".App.Splash">
@@ -16,10 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Controllers.Main"/>
-        <activity android:name=".Controllers.Login"/>
-
+        <activity android:name=".Controllers.ControllerMain" />
+        <activity android:name=".Controllers.ControllerLogin" />
+        <activity
+            android:name=".Controllers.ControllerInicio"
+            android:label="Inicio" />
+        <activity
+            android:name=".Controllers.ControllerPerfil"
+            android:label="Perfil" />
+        <activity
+            android:name=".Controllers.ControllerHombres"
+            android:label="Hombres" />
+        <activity
+            android:name=".Controllers.ControllerMujeres"
+            android:label="Mujeres" />
+        <activity android:name=".Controllers.ControllerOfertas"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/iconcasa"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/iconperfil"
+            android:title="Perfil" />
+
+        <item android:title="Categorías">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_hombres"
+                        android:icon="@drawable/iconhombre"
+                        android:title="Hombres" />
+                    <item
+                        android:id="@+id/nav_mujeres"
+                        android:icon="@drawable/iconmujer"
+                        android:title="Mujeres" />
+                </group>
+            </menu>
+        </item>
+
+    </group>
+
+    <group
+        android:id="@+id/id"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_ofertas"
+            android:icon="@drawable/iconetiquetaprecio"
+            android:title="Ofertas" />
+        <item
+            android:id="@+id/nav_salir"
+            android:icon="@drawable/iconsalida"
+            android:title="Salir" />
+    </group>
+</menu>

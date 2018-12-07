@@ -12,6 +12,4 @@
     android:elevation="1dp"
     local:titleTextAppearance="@style/ToolbarTitle">
 
-
-
 </android.support.v7.widget.Toolbar>
