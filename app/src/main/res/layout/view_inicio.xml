@@ -2,20 +2,25 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <pl.droidsonroids.gif.GifImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/slider"
-        android:layout_gravity="top"
-        android:foregroundGravity="top"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/pink">
+        android:layout_height="match_parent">
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="wrap_content"
+            android:layout_height="204dp"
+            android:background="@color/white"
+            android:src="@drawable/slider"
+            android:id="@+id/gif_slider" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_below="@+id/gif_slider">
 
-    </LinearLayout>
+        </LinearLayout>
 
+
+    </RelativeLayout>
 </LinearLayout>
