@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,10 +19,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:layout_below="@+id/gif_slider">
+            android:layout_below="@+id/gif_slider"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lo más reciente"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginLeft="10sp"/>
+            <com.etsy.android.grid.StaggeredGridView
+                android:id="@+id/grid_prendas_recientes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:item_margin="8dp"
+                app:column_count="2"/>
 
         </LinearLayout>
 
 
     </RelativeLayout>
-</LinearLayout>
+</ScrollView>

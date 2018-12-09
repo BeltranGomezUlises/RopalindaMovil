@@ -22,7 +22,7 @@
         <activity android:name=".Controllers.ControllerLogin" />
         <activity
             android:name=".Controllers.ControllerInicio"
-            android:label="Inicio"/>
+            android:label="Inicio" />
         <activity
             android:name=".Controllers.ControllerPerfil"
             android:label="Perfil" />
@@ -35,9 +35,7 @@
         <activity
             android:name=".Controllers.ControllerOfertas"
             android:label="Ofertas" />
-        <activity
-            android:name=".Controllers.ControllerCart"
-            android:label="Carrito" />
+        <activity android:name=".Controllers.ControllerDetallePrenda"></activity>
     </application>
 
 </manifest>

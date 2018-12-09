@@ -2,6 +2,7 @@ package com.ropalinda.ropalindamovil.Controllers;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -31,9 +32,9 @@ public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
     NumberFormat format = NumberFormat.getCurrencyInstance(Locale.CANADA);
 
     class ViewHolder{
-        ImageView image_prenda;
-        TextView txt_nomPrenda;
-        TextView txt_precioPrenda;
+        ImageView previewImage;
+        TextView name;
+        TextView price;
     }
 
     public ControllerAdaptadorPrenda(Context context, int layoutResourceId, ArrayList<Prenda> data) {
@@ -56,13 +57,19 @@ public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
             convertView = inflater.inflate(layoutResourceId, parent, false);
 
-            viewHolder.image_prenda = convertView.findViewById(R.id.image_prenda);
-            viewHolder.txt_nomPrenda = convertView.findViewById(R.id.txt_nomPrenda);
-            viewHolder.txt_precioPrenda = convertView.findViewById(R.id.txt_precioPrenda);
+            viewHolder.previewImage = convertView.findViewById(R.id.image_prenda);
+            viewHolder.name = convertView.findViewById(R.id.txt_nomPrenda);
+            viewHolder.price = convertView.findViewById(R.id.txt_precioPrenda);
 
             result = convertView;
 
             convertView.setTag(viewHolder);
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
 
         }
         else{
@@ -72,16 +79,16 @@ public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
 
         lastPosition = position;
 
-        new DownLoadImageTask(viewHolder.image_prenda).execute(prenda.getImagenPrenda());
+        new DownLoadImageTask(viewHolder.previewImage).execute(prenda.getPreviewImage()/*prenda.data.previewImage*/);
         //viewHolder.image_prenda.setImageURI(prenda.getImagenPrenda());
-        viewHolder.txt_nomPrenda.setText(prenda.getNombrePrenda());
-        int precio = prenda.getPrecioPrenda();
-        viewHolder.txt_precioPrenda.setText(format.format(precio));
+        viewHolder.name.setText(prenda.getName()/*prenda.data.name*/);
+        int precio = prenda.getPrice();
+        viewHolder.price.setText(format.format(precio));
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                context.startActivity(new Intent(context, ControllerDetallePrenda.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
 

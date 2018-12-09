@@ -34,7 +34,7 @@
         </LinearLayout>
 
         <com.etsy.android.grid.StaggeredGridView
-            android:id="@+id/grid_view_prendas"
+            android:id="@+id/grid_view_prendas_hombres"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:item_margin="8dp"

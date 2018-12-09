@@ -1,23 +1,19 @@
 package com.ropalinda.ropalindamovil.Entities;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class Prenda {
 
-    private int id;
-    private int idPrenda;
-    private String categoriaPrenda;
-    private String subCategoriaPrenda;
-    private String nombrePrenda;
-    private int precioPrenda;
-    private String imagenPrenda;
-
-    public Prenda(int id, int idPrenda, String categoriaPrenda, String subCategoriaPrenda, String nombrePrenda, int precioPrenda, String imagenPrenda) {
+    public Prenda(int id, int id2, String categoria, String subcategoria, String name, int price, String previewImage) {
         this.id = id;
-        this.idPrenda = idPrenda;
-        this.categoriaPrenda = categoriaPrenda;
-        this.subCategoriaPrenda = subCategoriaPrenda;
-        this.nombrePrenda = nombrePrenda;
-        this.precioPrenda = precioPrenda;
-        this.imagenPrenda = imagenPrenda;
+        this.id2 = id2;
+        this.categoria = categoria;
+        this.subcategoria = subcategoria;
+        this.name = name;
+        this.price = price;
+        this.previewImage = previewImage;
     }
 
     public int getId() {
@@ -28,52 +24,98 @@ public class Prenda {
         this.id = id;
     }
 
-    public int getIdPrenda() {
-        return idPrenda;
+    public int getId2() {
+        return id2;
     }
 
-    public void setIdPrenda(int idPrenda) {
-        this.idPrenda = idPrenda;
+    public void setId2(int id2) {
+        this.id2 = id2;
     }
 
-    public String getCategoriaPrenda() {
-        return categoriaPrenda;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setSubCategoriaPrenda(String subCategoriaPrenda) {
-        this.subCategoriaPrenda = subCategoriaPrenda;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public String getSubCategoriaPrenda() {
-        return subCategoriaPrenda;
+    public String getSubcategoria() {
+        return subcategoria;
     }
 
-    public void setCategoriaPrenda(String categoriaPrenda) {
-        this.categoriaPrenda = categoriaPrenda;
+    public void setSubcategoria(String subcategoria) {
+        this.subcategoria = subcategoria;
     }
 
-    public String getNombrePrenda() {
-        return nombrePrenda;
+    public String getName() {
+        return name;
     }
 
-    public void setNombrePrenda(String nombrePrenda) {
-        this.nombrePrenda = nombrePrenda;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getPrecioPrenda() {
-        return precioPrenda;
+    public int getPrice() {
+        return price;
     }
 
-    public void setPrecioPrenda(int precioPrenda) {
-        this.precioPrenda = precioPrenda;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getImagenPrenda() {
-        return imagenPrenda;
+    public String getPreviewImage() {
+        return previewImage;
     }
 
-    public void setImagenPrenda(String imagenPrenda) {
-        this.imagenPrenda = imagenPrenda;
+    public void setPreviewImage(String previewImage) {
+        this.previewImage = previewImage;
     }
+
+    int id;
+    int id2;
+    String categoria;
+    String subcategoria;
+    String name;
+    int price;
+    //String description;
+    String previewImage;
+
+
+    /*@SerializedName("subcategory")
+    public SubCategoria subcategory;
+
+    @SerializedName("data")
+    public Data data;
+
+    public static class SubCategoria {
+        @SerializedName("id")
+        public Integer id;
+        @SerializedName("name")
+        public String name;
+        @SerializedName("icon")
+        public String icon;
+        @SerializedName("active")
+        public Boolean active;
+    }
+
+    public static class Data {
+        @SerializedName("id")
+        public Integer id;
+        @SerializedName("name")
+        public String name;
+        @SerializedName("description")
+        public String description;
+        @SerializedName("previewImage")
+        public String previewImage;
+        @SerializedName("image")
+        public String image;
+        @SerializedName("active")
+        public boolean active;
+        @SerializedName("price")
+        public Integer price;
+        @SerializedName("compatibleGarmentList")
+        public List<PrendaCompatible> compatibleGarmentList;
+    }*/
 
 }
