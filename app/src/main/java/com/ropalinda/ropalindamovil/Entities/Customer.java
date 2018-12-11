@@ -2,10 +2,8 @@ package com.ropalinda.ropalindamovil.Entities;
 
 import java.util.Date;
 
-public class Client {
+public class Customer {
 
-    private String nombre;
-    private String correo;
     private String mail;
     private String pass;
     private String name;
@@ -13,36 +11,7 @@ public class Client {
     private String motherLastName;
     private String phone;
     private Date birthday;
-    boolean active;
-
-    public Client(String nombre, String correo, String mail, String pass, String name, String fatherLastName, String motherLastName, String phone, Date birthday, boolean active) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.mail = mail;
-        this.pass = pass;
-        this.name = name;
-        this.fatherLastName = fatherLastName;
-        this.motherLastName = motherLastName;
-        this.phone = phone;
-        this.birthday = birthday;
-        this.active = active;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
+    private boolean active;
 
     public String getMail() {
         return mail;
