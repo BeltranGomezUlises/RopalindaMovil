@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controllers.ControllerDetallePrenda"
+    tools:context=".Controllers.Prendas.ControllerGarmentDetail"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -59,48 +59,61 @@
                         android:layout_marginTop="5dp"/>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:visibility="gone"
+                    android:id="@+id/layout_descripcion">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Descripcion"
+                        android:id="@+id/txt_descripcion_detalle"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorDivider"></LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Descripcion"
-                    android:id="@+id/txt_descripcion_detalle"
-                    android:textSize="18dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+                    android:text="Prendas compatibles"
+                    android:textSize="16dp"
+                    android:gravity="center"
                     android:layout_marginTop="5dp"
-                    android:animateLayoutChanges="true"
-                    android:visibility="gone"/>
+                    android:visibility="visible"/>
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
-                    <ListView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:id="@+id/list_prendasCompatibles">
-                    </ListView>
-                </HorizontalScrollView>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Guardar prenda"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginRight="35dp"
-                    android:id="@+id/btn_guardar_prenda"/>
+                <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_compatibles_garments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Añadir al carrito"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="35dp"
                     android:id="@+id/btn_anadir_al_carrito"/>
 
-            </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Guardar prenda"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+                    android:id="@+id/btn_guardar_prenda"/>
 
+            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

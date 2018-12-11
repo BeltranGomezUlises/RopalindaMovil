@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Prenda {
+public class Garment {
 
-    public Prenda(int id, int id2, String categoria, String subcategoria, String name, int price, String previewImage) {
+    public Garment(int id, int id2, String categoria, String subcategoria, String name, int price, String previewImage) {
         this.id = id;
         this.id2 = id2;
         this.categoria = categoria;
@@ -115,7 +115,7 @@ public class Prenda {
         @SerializedName("price")
         public Integer price;
         @SerializedName("compatibleGarmentList")
-        public List<PrendaCompatible> compatibleGarmentList;
+        public List<CompatibleGarment> compatibleGarmentList;
     }*/
 
 }

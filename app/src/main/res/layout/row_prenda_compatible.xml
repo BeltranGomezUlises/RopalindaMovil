@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="180dp"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
@@ -22,7 +22,7 @@
                 android:layout_height="160dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/imagedefault"
-                android:id="@+id/image_garment"/>
+                android:id="@+id/image_compatible_garment"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,15 +39,23 @@
                     android:textColor="@color/colorPrimaryText"
                     android:textStyle="bold"
                     android:textSize="14sp"
-                    android:id="@+id/txt_name_garment"/>
+                    android:id="@+id/txt_name_compatible_garment"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="$0.00"
                     android:textColor="@color/colorAccent"
-                    android:id="@+id/txt_price_garment"
+                    android:id="@+id/txt_price_compatible_garment"
                     android:textSize="18dp"
                     android:textStyle="bold"/>
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:text="Añadir"
+                    android:id="@+id/checkbox_add_compatible_garment"
+                    android:textSize="17dp"/>
             </LinearLayout>
 
         </LinearLayout>

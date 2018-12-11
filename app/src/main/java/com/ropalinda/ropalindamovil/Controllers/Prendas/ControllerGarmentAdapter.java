@@ -1,12 +1,8 @@
-package com.ropalinda.ropalindamovil.Controllers;
+package com.ropalinda.ropalindamovil.Controllers.Prendas;
 
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,20 +10,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ropalinda.ropalindamovil.Entities.Prenda;
+import com.ropalinda.ropalindamovil.Entities.Garment;
 import com.ropalinda.ropalindamovil.R;
+import com.ropalinda.ropalindamovil.Utils.DownLoadImageTask;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
+public class ControllerGarmentAdapter extends ArrayAdapter<Garment> {
 
     Context context;
     int layoutResourceId;
-    ArrayList<Prenda> data;
+    ArrayList<Garment> data;
     private int lastPosition = -1;
     NumberFormat format = NumberFormat.getCurrencyInstance(Locale.CANADA);
 
@@ -37,7 +32,7 @@ public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
         TextView price;
     }
 
-    public ControllerAdaptadorPrenda(Context context, int layoutResourceId, ArrayList<Prenda> data) {
+    public ControllerGarmentAdapter(Context context, int layoutResourceId, ArrayList<Garment> data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -46,7 +41,7 @@ public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final Prenda prenda = getItem(position);
+        final Garment prenda = getItem(position);
         ViewHolder viewHolder;
 
         final View result;
@@ -57,9 +52,9 @@ public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
             convertView = inflater.inflate(layoutResourceId, parent, false);
 
-            viewHolder.previewImage = convertView.findViewById(R.id.image_prenda);
-            viewHolder.name = convertView.findViewById(R.id.txt_nomPrenda);
-            viewHolder.price = convertView.findViewById(R.id.txt_precioPrenda);
+            viewHolder.previewImage = convertView.findViewById(R.id.image_garment);
+            viewHolder.name = convertView.findViewById(R.id.txt_name_garment);
+            viewHolder.price = convertView.findViewById(R.id.txt_price_garment);
 
             result = convertView;
 
@@ -88,48 +83,12 @@ public class ControllerAdaptadorPrenda extends ArrayAdapter<Prenda> {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, ControllerDetallePrenda.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                context.startActivity(new Intent(context, ControllerGarmentDetail.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
 
         return convertView;
 
-    }
-
-    private class DownLoadImageTask extends AsyncTask<String,Void,Bitmap> {
-        ImageView imageView;
-
-        public DownLoadImageTask(ImageView imageView){
-            this.imageView = imageView;
-        }
-
-        /*
-            doInBackground(Params... params)
-                Override this method to perform a computation on a background thread.
-         */
-        protected Bitmap doInBackground(String...urls){
-            String urlOfImage = urls[0];
-            Bitmap logo = null;
-            try{
-                InputStream is = new URL(urlOfImage).openStream();
-                /*
-                    decodeStream(InputStream is)
-                        Decode an input stream into a bitmap.
-                 */
-                logo = BitmapFactory.decodeStream(is);
-            }catch(Exception e){ // Catch the download exception
-                e.printStackTrace();
-            }
-            return logo;
-        }
-
-        /*
-            onPostExecute(Result result)
-                Runs on the UI thread after doInBackground(Params...).
-         */
-        protected void onPostExecute(Bitmap result){
-            imageView.setImageBitmap(result);
-        }
     }
 
 }

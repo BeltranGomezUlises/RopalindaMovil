@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".App.Splash">
+        <activity android:name=".Controllers.ControllerSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,15 +27,12 @@
             android:name=".Controllers.ControllerPerfil"
             android:label="Perfil" />
         <activity
-            android:name=".Controllers.ControllerHombres"
+            android:name=".Controllers.Categorias.ControllerHombres"
             android:label="Hombres" />
         <activity
-            android:name=".Controllers.ControllerMujeres"
+            android:name=".Controllers.Categorias.ControllerMujeres"
             android:label="Mujeres" />
-        <activity
-            android:name=".Controllers.ControllerOfertas"
-            android:label="Ofertas" />
-        <activity android:name=".Controllers.ControllerDetallePrenda"></activity>
+        <activity android:name=".Controllers.Prendas.ControllerGarmentDetail"></activity>
     </application>
 
 </manifest>

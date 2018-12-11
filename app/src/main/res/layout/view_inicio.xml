@@ -26,17 +26,19 @@
                 android:layout_height="wrap_content"
                 android:text="Lo más reciente"
                 android:textSize="20sp"
+                android:gravity="center"
                 android:textColor="@color/colorPrimaryText"
-                android:layout_marginLeft="10sp"/>
+                android:layout_marginLeft="10sp"
+                android:id="@+id/txt_reciente"/>
+
             <com.etsy.android.grid.StaggeredGridView
                 android:id="@+id/grid_prendas_recientes"
+                android:layout_below="@+id/txt_reciente"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:item_margin="8dp"
                 app:column_count="2"/>
 
         </LinearLayout>
-
-
     </RelativeLayout>
 </ScrollView>

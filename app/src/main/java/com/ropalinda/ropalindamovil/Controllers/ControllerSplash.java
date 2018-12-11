@@ -1,4 +1,4 @@
-package com.ropalinda.ropalindamovil.App;
+package com.ropalinda.ropalindamovil.Controllers;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,10 +10,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.ropalinda.ropalindamovil.Controllers.ControllerInicio;
 import com.ropalinda.ropalindamovil.R;
 
-public class Splash extends AppCompatActivity {
+public class ControllerSplash extends AppCompatActivity {
 
     ProgressBar progressbar_splash;
     ImageView img_logo;
@@ -22,7 +21,7 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
+        setContentView(R.layout.view_splash);
 
         View decorView = getWindow().getDecorView();
         // Hide both the navigation bar and the status bar.
@@ -51,7 +50,7 @@ public class Splash extends AppCompatActivity {
                     e.printStackTrace();
                 }finally{
 
-                    Intent intent = new Intent(Splash.this, ControllerInicio.class);
+                    Intent intent = new Intent(ControllerSplash.this, ControllerInicio.class);
                     startActivity(intent);
 
                 }

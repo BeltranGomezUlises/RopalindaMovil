@@ -1,4 +1,4 @@
-package com.ropalinda.ropalindamovil.Controllers;
+package com.ropalinda.ropalindamovil.Controllers.Categorias;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import com.ropalinda.ropalindamovil.Controllers.ControllerInicio;
+import com.ropalinda.ropalindamovil.Controllers.ControllerMain;
 import com.ropalinda.ropalindamovil.R;
 
 public class ControllerMujeres extends ControllerMain {

@@ -2,6 +2,8 @@ package com.ropalinda.ropalindamovil.Controllers;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -9,35 +11,46 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsMessage;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 
+import com.ropalinda.ropalindamovil.Controllers.Categorias.ControllerHombres;
+import com.ropalinda.ropalindamovil.Controllers.Categorias.ControllerMujeres;
+import com.ropalinda.ropalindamovil.Entities.Category;
+import com.ropalinda.ropalindamovil.Models.ModelMain;
 import com.ropalinda.ropalindamovil.R;
 import com.ropalinda.ropalindamovil.Utils.Preferencias;
+
+import java.security.acl.Group;
 
 public class ControllerMain extends AppCompatActivity{
 
     private Preferencias prefs;
-    DrawerLayout drawerLayout;
-    ActionBarDrawerToggle actionBarDrawerToggle;
-    Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private Toolbar toolbar;
+    ModelMain modelMain = new ModelMain();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_main);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        //NavigationView navigationView = findViewById(R.id.nav_view);
 
         prefs = new Preferencias(getApplicationContext());
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        displayMenu();
+
+        /*navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -55,19 +68,19 @@ public class ControllerMain extends AppCompatActivity{
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.nav_hombres:
+                    case R.id.nav_hombre:
                         startActivity(new Intent(getApplicationContext(), ControllerHombres.class));
                         finish();
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.nav_mujeres:
+                    case R.id.nav_mujer:
                         startActivity(new Intent(getApplicationContext(), ControllerMujeres.class));
                         finish();
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.nav_ofertas:
+                    case R.id.nav_niña:
                         startActivity(new Intent(getApplicationContext(), ControllerOfertas.class));
                         finish();
                         drawerLayout.closeDrawers();
@@ -81,8 +94,30 @@ public class ControllerMain extends AppCompatActivity{
                 }
                 return false;
             }
-        });
+        });*/
 
+    }
+
+    private void displayMenu(){
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        Menu menu = navigationView.getMenu();
+
+        menu.add("Inicio").setIcon(R.drawable.iconcasa);
+        menu.add("Prendas personalizadas").setIcon(R.drawable.iconbolsa);
+
+        SubMenu categorías = menu.addSubMenu("Categorías");
+        for(Category g : modelMain.getCategories()){
+            categorías.add(g.getName()).setIcon(BitmapDrawable.createFromPath(g.getImage()));
+        }
+        /*categorías.add("Hombre").setIcon(R.drawable.iconbolsa);
+        categorías.add("Mujer");
+        categorías.add("Niña");*/
+
+        //menu.setGroupDividerEnabled(true);
+        menu.add("Cerrar Sesión");
     }
 
     @Override
