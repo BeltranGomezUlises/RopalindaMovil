@@ -7,12 +7,16 @@ public class SubCategory {
     String icon;
     boolean active;
 
-    public SubCategory(int id, String name, String icon, boolean active) {
+    public SubCategory(){
+
+    }
+
+    /*public SubCategory(int id, String name, String icon, boolean active) {
         this.id = id;
         this.name = name;
         this.icon = icon;
         this.active = active;
-    }
+    }*/
 
     public int getId() {
         return id;

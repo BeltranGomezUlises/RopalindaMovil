@@ -1,19 +1,27 @@
 package com.ropalinda.ropalindamovil.Entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Category {
 
+    List<SubCategory> subcategoryCollection;
     int id;
     String name;
-    String image;
-    ArrayList<SubCategory> subCategories;
+    String icon;
+    boolean active;
 
-    public Category(int id, String name, String image, ArrayList<SubCategory> subCategories) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-        this.subCategories = subCategories;
+
+    public Category(){
+
+    }
+
+    public List<SubCategory> getSubcategoryCollection() {
+        return subcategoryCollection;
+    }
+
+    public void setSubcategoryCollection(List<SubCategory> subcategoryCollection) {
+        this.subcategoryCollection = subcategoryCollection;
     }
 
     public int getId() {
@@ -32,20 +40,20 @@ public class Category {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
+    public String getIcon() {
+        return icon;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
-    public ArrayList<SubCategory> getSubCategories() {
-        return subCategories;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setSubCategories(ArrayList<SubCategory> subCategories) {
-        this.subCategories = subCategories;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
 }

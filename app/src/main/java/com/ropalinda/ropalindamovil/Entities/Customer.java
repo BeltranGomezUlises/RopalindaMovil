@@ -62,6 +62,7 @@ public class Customer {
     }
 
     public Date getBirthday() {
+        
         return birthday;
     }
 

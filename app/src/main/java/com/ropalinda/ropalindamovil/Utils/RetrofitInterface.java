@@ -1,8 +1,11 @@
 package com.ropalinda.ropalindamovil.Utils;
 
 
+import com.ropalinda.ropalindamovil.Entities.Category;
 import com.ropalinda.ropalindamovil.Entities.Login;
 import com.ropalinda.ropalindamovil.Entities.WSRes;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -34,9 +37,7 @@ public interface RetrofitInterface {
      * @param whereValues  condiciones que cumplir separadas por coma
      * @return lista de categorias
      */
-    @GET("categorias")
-    Call<WSRes> categorias(@Header("Authorization") String token,
-                                                 @Query("select") String selectValues,
-                                                 @Query("where") String whereValues);
+    @GET("categories")
+    Call<WSRes<List<Category>>> categorias();
 
 }

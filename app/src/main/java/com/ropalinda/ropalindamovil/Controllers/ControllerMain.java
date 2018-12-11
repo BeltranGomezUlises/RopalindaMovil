@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
+import android.view.View;
 
 import com.ropalinda.ropalindamovil.Controllers.Categorias.ControllerHombres;
 import com.ropalinda.ropalindamovil.Controllers.Categorias.ControllerMujeres;
@@ -25,6 +26,8 @@ import com.ropalinda.ropalindamovil.R;
 import com.ropalinda.ropalindamovil.Utils.Preferencias;
 
 import java.security.acl.Group;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ControllerMain extends AppCompatActivity{
 
@@ -32,69 +35,22 @@ public class ControllerMain extends AppCompatActivity{
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Toolbar toolbar;
-    ModelMain modelMain = new ModelMain();
+    View view;
+    ModelMain modelMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_main);
-        //NavigationView navigationView = findViewById(R.id.nav_view);
+        this.view = findViewById(R.id.drawer_layout);
+        modelMain = new ModelMain(this);
 
         prefs = new Preferencias(getApplicationContext());
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         displayMenu();
-
-        /*navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-
-                switch (item.getItemId()) {
-
-                    case R.id.nav_inicio:
-                        startActivity(new Intent(getApplicationContext(), ControllerInicio.class));
-                        finish();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                    case R.id.nav_perfil:
-                        startActivity(new Intent(getApplicationContext(), ControllerPerfil.class));
-                        finish();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                    case R.id.nav_hombre:
-                        startActivity(new Intent(getApplicationContext(), ControllerHombres.class));
-                        finish();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                    case R.id.nav_mujer:
-                        startActivity(new Intent(getApplicationContext(), ControllerMujeres.class));
-                        finish();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                    case R.id.nav_niña:
-                        startActivity(new Intent(getApplicationContext(), ControllerOfertas.class));
-                        finish();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                    case R.id.nav_salir:
-                        cerrarSesion();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                }
-                return false;
-            }
-        });*/
 
     }
 
@@ -105,19 +61,44 @@ public class ControllerMain extends AppCompatActivity{
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         Menu menu = navigationView.getMenu();
 
-        menu.add("Inicio").setIcon(R.drawable.iconcasa);
+        menu.add("Inicio").setIcon(R.drawable.iconcasa).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(getApplicationContext(),ControllerInicio.class));
+                finish();
+                return false;
+            }
+        });
         menu.add("Prendas personalizadas").setIcon(R.drawable.iconbolsa);
 
-        SubMenu categorías = menu.addSubMenu("Categorías");
-        for(Category g : modelMain.getCategories()){
-            categorías.add(g.getName()).setIcon(BitmapDrawable.createFromPath(g.getImage()));
-        }
-        /*categorías.add("Hombre").setIcon(R.drawable.iconbolsa);
-        categorías.add("Mujer");
-        categorías.add("Niña");*/
+        SubMenu categorias = menu.addSubMenu("Categorías");
 
-        //menu.setGroupDividerEnabled(true);
-        menu.add("Cerrar Sesión");
+        /*List<Category> categories = modelMain.getCategories();
+        for(Category c : categories){
+            categorias.add(c.getName());
+            //categorias.add(c.getName()).setIcon(BitmapDrawable.createFromPath(c.getIcon()));
+        }*/
+        categorias.add("Hombre").setIcon(R.drawable.iconhombre).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent i = new Intent(getApplicationContext(),ControllerHombres.class);
+                startActivity(i);
+                finish();
+                return false;
+            }
+        });
+        categorias.add("Mujer").setIcon(R.drawable.iconmujer);
+        categorias.add("Niña").setIcon(R.drawable.iconchupete);
+        categorias.add("Bebé").setIcon(R.drawable.iconcorbata);
+
+
+        menu.add("Cerrar Sesión").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                cerrarSesion();
+                return false;
+            }
+        });
     }
 
     @Override

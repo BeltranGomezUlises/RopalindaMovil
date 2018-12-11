@@ -12,6 +12,7 @@ public class Preferencias {
     private final String SESION = "sesion";
     private final String NOMBRE = "nombre";
     private final String CORREO = "correo";
+    private final String TOKEN = "token";
 
     private Context mContext;
 
@@ -22,6 +23,14 @@ public class Preferencias {
     private SharedPreferences getSettings(){
         return mContext.getSharedPreferences(SHARED_PREFS_FILE, 0);
     }
+
+    public void setTOKEN(String prSave2){
+        SharedPreferences.Editor editor = getSettings().edit();
+        editor.putString(TOKEN,prSave2);
+        editor.commit();
+    }
+
+    public String getTOKEN(){return getSettings().getString(TOKEN,"");}
 
     public void setSesion(boolean prSave2){
         SharedPreferences.Editor editor = getSettings().edit();
